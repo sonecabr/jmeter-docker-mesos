@@ -14,7 +14,7 @@ COPY docker-resources/* /tmp/
 RUN apk --update add tar unzip bash && \
 	rm -rf /var/cache/apk/* && \
 	tar -xzf /tmp/apache-jmeter-${JMETER_VERSION}.tgz -C /usr/local && \
-	cp "/tmp/jmeter-plugins-manager-${JMETER_PLUGIN_MANAGER_VERSION}.jar" -d $JMETER_HOME/lib/ext/ && \
+	cp /tmp/*.jar -d $JMETER_HOME/lib/ext/ && \
 	rm -rf /tmp/docker-resources
 
 ENV PATH $PATH:$JMETER_BIN
